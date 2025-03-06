@@ -66,7 +66,7 @@ char Read_Keypad(void) {
 	if (READ_INPUT(C3) == ON)key = (mod == 1) ? '#' : 'H';
 	if (READ_INPUT(C4) == ON) {
 		mod = (mod % 2) + 1;
-		return '\0';//
+		return '\0';
 	}
 	GPIO_WRITE(R4, OFF);
 

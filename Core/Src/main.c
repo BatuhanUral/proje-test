@@ -115,26 +115,26 @@ int main(void)
 
 	  pressed_key = Read_Keypad();
 
-	  if (pressed_key != '\0') { // Eğer bir tuşa basıldıysa
-		  // Basılan tuşa göre işlem yapma
-		  switch (pressed_key) {
-		  case '1':
-			  GPIO_WRITE(LED1,ON);
-			  break;
-		  case '2':
-			  GPIO_WRITE(LED2,ON);
-			  break;
-		  case  12 :
-			  GPIO_WRITE(LED3,ON);
-			  break;
-		  case 22:
-			  GPIO_WRITE(LED4,ON);
-			  break;
-		  default:
-
-			  break;
-		  }
-	  }
+//	  if (pressed_key != '\0') { // Eğer bir tuşa basıldıysa
+//		  // Basılan tuşa göre işlem yapma
+//		  switch (pressed_key) {
+//		  case '1':
+//			  GPIO_WRITE(LED1,ON);
+//			  break;
+//		  case '2':
+//			  GPIO_WRITE(LED2,ON);
+//			  break;
+//		  case  12 :
+//			  GPIO_WRITE(LED3,ON);
+//			  break;
+//		  case 22:
+//			  GPIO_WRITE(LED4,ON);
+//			  break;
+//		  default:
+//
+//			  break;
+//		  }
+//	  }
 
 
 

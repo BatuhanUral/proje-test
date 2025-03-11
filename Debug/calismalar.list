@@ -348,7 +348,7 @@ Disassembly of section .text:
 
 080004b8 <Read_Keypad>:
 static uint32_t lastModDebounceTime = 0;
-static uint8_t modButtonPressed = 0; // Mod tuşu için özel durum
+static uint8_t modButtonPressed = 0;
 #define DEBOUNCE_DELAY_MS 100
 #define MOD_DEBOUNCE_DELAY_MS 200
 
@@ -385,7 +385,7 @@ char Read_Keypad(void) {
 	uint32_t currentTime = HAL_GetTick();
  80004f2:	f000 fb83 	bl	8000bfc <HAL_GetTick>
  80004f6:	6038      	str	r0, [r7, #0]
-	uint8_t keyPressedCount = 0; // Aynı anda basılan tuş sayısı
+	uint8_t keyPressedCount = 0;
  80004f8:	2300      	movs	r3, #0
  80004fa:	71bb      	strb	r3, [r7, #6]
 
@@ -745,7 +745,7 @@ char Read_Keypad(void) {
  80007ce:	f44f 4180 	mov.w	r1, #16384	@ 0x4000
  80007d2:	480c      	ldr	r0, [pc, #48]	@ (8000804 <Read_Keypad+0x34c>)
  80007d4:	f000 fcb8 	bl	8001148 <HAL_GPIO_WritePin>
-		return '\0'; // Mod tuşuna basıldığında hiçbir değer döndürme
+		return '\0';
  80007d8:	2300      	movs	r3, #0
  80007da:	e00e      	b.n	80007fa <Read_Keypad+0x342>
 	} else {
@@ -760,7 +760,8 @@ char Read_Keypad(void) {
  80007e8:	4806      	ldr	r0, [pc, #24]	@ (8000804 <Read_Keypad+0x34c>)
  80007ea:	f000 fcad 	bl	8001148 <HAL_GPIO_WritePin>
 
-	// Eğer birden fazla tuşa basılmışsa '\0' döndür
+
+	// Eğer birden fazla tuşa basılmışsa '\0' döndürme condition'ı
 	if (keyPressedCount > 1) {
  80007ee:	79bb      	ldrb	r3, [r7, #6]
  80007f0:	2b01      	cmp	r3, #1
@@ -770,7 +771,7 @@ char Read_Keypad(void) {
  80007f6:	e000      	b.n	80007fa <Read_Keypad+0x342>
 	}
 
-	return key; // Tek bir tuşa basıldıysa, o tuşun değerini döndür
+	return key;
  80007f8:	79fb      	ldrb	r3, [r7, #7]
 }
  80007fa:	4618      	mov	r0, r3
